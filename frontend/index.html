@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="barra-janela">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="header-topo">
+            <div class="icone-cabecalho">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 11l3 3L22 4"></path>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+            </div>
+            <div>
+                <h1>Lista de Tarefas</h1>
+                <p class="subtitle">Organize o que precisa ser feito hoje.</p>
+            </div>
+        </div>
+
+        <form id="form-tarefa">
+            <input type="hidden" id="tarefa-id">
+
+            <input type="text" id="titulo" placeholder="Título da tarefa" required>
+            <textarea id="descricao" placeholder="Descrição (opcional)"></textarea>
+
+            <button type="submit" id="btn-salvar">Adicionar Tarefa</button>
+            <button type="button" id="btn-cancelar" style="display:none;">Cancelar</button>
+        </form>
+
+        <div id="progresso-container">
+            <span id="progresso-texto"></span>
+            <div class="barra-fundo">
+                <div id="barra-preenchida"></div>
+            </div>
+        </div>
+
+        <ul id="lista-tarefas"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

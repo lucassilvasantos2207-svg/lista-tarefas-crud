@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #EDEEF3;
+    --surface: #FFFFFF;
+    --surface-soft: #F7F7FA;
+    --border: #E3E4EA;
+    --ink: #14151A;
+    --ink-soft: #90939C;
+    --accent: #FF5A3C;
+    --accent-hover: #E84B2E;
+    --accent-soft: #FFF0EC;
+    --done: #16A34A;
+    --done-soft: #E9F9EF;
+    --danger: #DC2626;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(255, 90, 60, 0.06), transparent 40%),
+        var(--bg);
+    color: var(--ink);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 72px 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    background-color: var(--surface);
+    border-radius: 20px;
+    padding: 36px 36px 32px;
+    box-shadow:
+        0 1px 1px rgba(20, 21, 26, 0.03),
+        0 12px 32px rgba(20, 21, 26, 0.07),
+        0 2px 8px rgba(20, 21, 26, 0.04);
+    border: 1px solid rgba(20, 21, 26, 0.04);
+}
+
+.header-topo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.icone-cabecalho {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), #FF8A6B);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 90, 60, 0.3);
+}
+
+.icone-cabecalho svg {
+    width: 22px;
+    height: 22px;
+    color: white;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+}
+
+/* Formulário */
+#form-tarefa {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+#form-tarefa input,
+#form-tarefa textarea {
+    font-family: inherit;
+    font-size: 14.5px;
+    color: var(--ink);
+    background-color: var(--surface-soft);
+    border: 1.5px solid var(--surface-soft);
+    border-radius: 10px;
+    padding: 12px 14px;
+    resize: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#form-tarefa input::placeholder,
+#form-tarefa textarea::placeholder {
+    color: var(--ink-soft);
+}
+
+#form-tarefa input:focus,
+#form-tarefa textarea:focus {
+    outline: none;
+    background-color: var(--surface);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+#form-tarefa textarea {
+    min-height: 58px;
+}
+
+#form-tarefa button {
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+}
+
+#btn-salvar {
+    background-color: var(--accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 90, 60, 0.28);
+}
+
+#btn-salvar:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 6px 16px rgba(255, 90, 60, 0.34);
+}
+
+#btn-salvar:active {
+    transform: scale(0.98);
+}
+
+#btn-cancelar {
+    background-color: transparent;
+    color: var(--ink-soft);
+    border: 1.5px solid var(--border) !important;
+}
+
+#btn-cancelar:hover {
+    background-color: var(--surface-soft);
+    color: var(--ink);
+}
+
+/* Progresso */
+#progresso-container {
+    margin-bottom: 22px;
+}
+
+#progresso-texto {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+}
+
+.barra-fundo {
+    width: 100%;
+    height: 7px;
+    background-color: var(--surface-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+#barra-preenchida {
+    height: 100%;
+    background: linear-gradient(90deg, var(--done), #22C55E);
+    border-radius: 999px;
+    width: 0%;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Lista de tarefas */
+#lista-tarefas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#lista-tarefas li {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 14px 12px;
+    margin: 0 -12px;
+    border-radius: 12px;
+    transition: background-color 0.15s ease;
+}
+
+#lista-tarefas li:hover {
+    background-color: var(--surface-soft);
+}
+
+#lista-tarefas li + li {
+    margin-top: 2px;
+}
+
+/* Checkbox circular customizado */
+.checkbox-tarefa {
+    flex-shrink: 0;
+    width: 23px;
+    height: 23px;
+    margin-top: 1px;
+    border-radius: 50%;
+    border: 2px solid #B8BAC4;
+    background-color: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+}
+
+.checkbox-tarefa:hover {
+    border-color: var(--done);
+    transform: scale(1.08);
+}
+
+.checkbox-tarefa svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.checkbox-tarefa.marcado {
+    background-color: var(--done);
+    border-color: var(--done);
+}
+
+.checkbox-tarefa.marcado svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.tarefa-info {
+    flex: 1;
+    min-width: 0;
+    padding-top: 1px;
+}
+
+.tarefa-info h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    transition: color 0.15s ease;
+}
+
+.tarefa-info p {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+}
+
+.tarefa-concluida h3 {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+    font-weight: 500;
+}
+
+.tarefa-acoes {
+    display: flex;
+    gap: 2px;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+#lista-tarefas li:hover .tarefa-acoes {
+    opacity: 1;
+}
+
+.tarefa-acoes button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: var(--ink-soft);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tarefa-acoes button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.tarefa-acoes button:hover {
+    background-color: var(--surface);
+}
+
+.btn-editar:hover {
+    color: var(--accent);
+}
+
+.btn-excluir:hover {
+    color: var(--danger);
+}
+
+/* Estado vazio */
+.vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 14px;
+    padding: 32px 0;
+}
+
+.vazio svg {
+    width: 56px;
+    height: 56px;
+    color: var(--border);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .container {
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+}
